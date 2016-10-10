@@ -1,0 +1,146 @@
+<!doctype html>
+
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+
+        <title>Bio-Formats architecture</title>
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <link rel="stylesheet" href="reveal-js/css/reveal.min.css">
+        <link rel="stylesheet" href="reveal-js/css/theme/default.css" id="theme">
+
+        <!-- OME presentation overrides of the default theme -->
+        <link rel="stylesheet" href="css/ome-reveal.css">
+
+        <!-- For syntax highlighting -->
+        <link rel="stylesheet" href="reveal-js/lib/css/zenburn.css">
+
+        <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+        <script>
+            document.write( '<link rel="stylesheet" href="reveal-js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+        </script>
+
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+    </head>
+
+    <body class="ome_theme">
+
+        <div class="reveal">
+
+            <!-- Any section element inside of this container is displayed as a slide -->
+            <div class="slides">
+
+                <!-- title page -->
+                <section>
+                    <h2>PR workflow, what can we improve?</h2>
+                    <h4>October 11, 2016</h4>
+                </section>
+                
+
+                <section>
+                    <h2>(Ideal) Workflow</h2>
+                    <p><b>Goal:</b> having such workflow as smooth and as quick as Possible
+                    </p>
+                    <ul>
+                      <li>Open PR</li>
+                      <li>Review</li>
+                      <li>Merge</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>What's happening</h2>
+                    <ul>
+                      <li>PR open</li>
+                      <li>Review:</li>
+                      <ul>
+                          <li>Question, Test required, etc.</li>
+                          <li>More change in code</li>
+                          <li>More question, more tests</li>
+                          <li>...</li>  
+                      </ul>
+                      <li>Merge</li>
+                      <ul>
+                        <li>In “limbo” state: Mark as "Ready to merge" but not merge yet, more unanswered questions, etc.</li>
+                      </ul>                       
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>What can we improve: <b>PR open</b></h2>
+                      <ul>
+                        <li>Improve PR template to indicate if UI/integration/unit tests (checklist)</li>
+                        <li>CC relevant people e.g. @mtbc if DB change</li>
+                        <li>Make sure tests are added/adjusted
+                        <ul>
+                          <li>Change to loading of data: integration/unit tests</li>
+                        </ul>
+                        </li>
+                        <li>Basically add anything that can help reviewers</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>What can we improve: <b>Review</b></h2>
+                      <ul>
+                        <li>Functional review</li>
+                        <li>Code review</li>
+                        <li>Use github feature to approve changes e.g. <a href="https://github.com/openmicroscopy/omero-webtest/pull/17">omero-webtest PR 17</a>
+                          <li>Everything is <b>public</b>: if discussion needed, better to schedule a zoom discussion than long debate. </li>
+                    </ul>
+                </section>
+                
+                <section>
+                    <h2>What can we improve: <b>Merge</b></h2>
+                      <ul>
+                        <li>Need clear statement, especially if there is a <i>merge</i> in the middle of discussion</li>
+                        <li>Need both Functional/Code for PR to become <i>mergeable</i></li>
+                        <li>If PR <i>mergeable</i> and not <i>merge</i> yet, bring it back to attention.
+                          Do not wait to be blocked!
+                        </li>
+                    </ul>
+                </section>
+            </div>
+
+        </div>
+
+        <script src="reveal-js/lib/js/head.min.js"></script>
+        <script src="reveal-js/js/reveal.min.js"></script>
+
+        <script>
+
+            // Full list of configuration options available here:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                history: true,
+                center: true,
+
+                theme: 'sky', //Reveal.getQueryHash().theme, // available themes are in /css/theme
+                transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+                // Optional libraries used to extend on reveal.js
+                dependencies: [
+                    // { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    // { src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    // { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'reveal-js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    // { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+                    // { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+                    // { src: 'plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+                    // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+                ]
+            });
+
+        </script>
+
+    </body>
+</html>
